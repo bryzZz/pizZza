@@ -1,12 +1,13 @@
 import React from "react";
 
-interface AddButtonProps {
+interface AddButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     variant: "add";
     count: number;
     styleVariant?: "outline" | "fill";
 }
 
-interface CartButtonProps {
+interface CartButtonProps
+    extends React.ButtonHTMLAttributes<HTMLAnchorElement> {
     variant: "cart";
     price: number;
     goodsNumber: number;
@@ -14,9 +15,9 @@ interface CartButtonProps {
 
 export const Button: React.FC<AddButtonProps | CartButtonProps> = (props) => {
     if (props.variant === "cart") {
-        const { goodsNumber, price } = props;
+        const { goodsNumber, price, ...other } = props;
         return (
-            <a href='/cart.html' className='button button--cart'>
+            <a href='/cart.html' className='button button--cart' {...other}>
                 <span>{price} ₽</span>
                 <div className='button__delimiter'></div>
                 <svg
@@ -52,9 +53,12 @@ export const Button: React.FC<AddButtonProps | CartButtonProps> = (props) => {
             </a>
         );
     }
-    const { count, styleVariant = "outline" } = props;
+    const { count, styleVariant = "outline", ...other } = props;
     return (
-        <button className={`button button--add button--${styleVariant}`}>
+        <button
+            className={`button button--add button--${styleVariant}`}
+            {...other}
+        >
             <svg
                 width='12'
                 height='12'

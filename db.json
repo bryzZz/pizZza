@@ -1,0 +1,55 @@
+{
+    "categories": ["all", "meat", "vegetarian", "grill", "spicy", "closed"],
+    "pizzas": [
+        {
+            "id": 1,
+            "name": "cheeseburger-pizza",
+            "img": "https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg",
+            "price": {
+                "min": 395,
+                "medium": 495,
+                "big": 595
+            }
+        },
+        {
+            "id": 2,
+            "name": "cheeseburger-pizza",
+            "img": "https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg",
+            "price": {
+                "min": 395,
+                "medium": 495,
+                "big": 595
+            }
+        },
+        {
+            "id": 3,
+            "name": "cheeseburger-pizza",
+            "img": "https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg",
+            "price": {
+                "min": 395,
+                "medium": 495,
+                "big": 595
+            }
+        },
+        {
+            "id": 4,
+            "name": "cheeseburger-pizza",
+            "img": "https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg",
+            "price": {
+                "min": 395,
+                "medium": 495,
+                "big": 595
+            }
+        },
+        {
+            "id": 5,
+            "name": "cheeseburger-pizza",
+            "img": "https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg",
+            "price": {
+                "min": 395,
+                "medium": 495,
+                "big": 595
+            }
+        }
+    ]
+}
