@@ -1,12 +1,15 @@
-import React, { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../store";
-import { changeActiveCategory, fetchCategories } from "../store/sortSlice";
+import React, { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../store';
+import {
+    changeActiveCategory,
+    fetchCategories,
+} from '../store/categoriesSlice';
 
 interface CategoriesProps {}
 
 export const Categories: React.FC<CategoriesProps> = () => {
     const { categoryTypes, activeCategory, loading } = useAppSelector(
-        (state) => state.sort
+        (state) => state.categories
     );
     const dispatch = useAppDispatch();
 
@@ -18,17 +21,17 @@ export const Categories: React.FC<CategoriesProps> = () => {
         dispatch(changeActiveCategory(i));
     };
 
-    if (loading === "pending") {
+    if (loading === 'pending') {
         return <p>Loading...</p>;
     }
 
     return (
-        <div className='categories'>
+        <div className="categories">
             <ul>
                 {categoryTypes.map((item, i) => (
                     <li
                         key={i}
-                        className={i === activeCategory ? "active" : ""}
+                        className={i === activeCategory ? 'active' : ''}
                         onClick={() => handleChangeCategory(i)}
                     >
                         {item}

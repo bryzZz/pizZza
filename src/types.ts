@@ -7,9 +7,9 @@ export type PizzaData = {
     id: number;
     name: string;
     img: string;
-    price: {
-        min: number;
-        medium: number;
-        big: number;
-    };
+    types: number[];
+    sizes: number[];
+    price: number;
+    category: number;
+    rating: number;
 };

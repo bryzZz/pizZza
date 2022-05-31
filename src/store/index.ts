@@ -1,12 +1,16 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { useDispatch, useSelector, TypedUseSelectorHook } from "react-redux";
-import pizzaReducer from "./pizzaSlice";
-import sortReducer from "./sortSlice";
+import { configureStore } from '@reduxjs/toolkit';
+import { useDispatch, useSelector, TypedUseSelectorHook } from 'react-redux';
+import pizzaReducer from './pizzaSlice';
+import pizzaTypesReducer from './pizzaTypesSlice';
+import sortReducer from './sortSlice';
+import categoriesReducer from './categoriesSlice';
 
 const store = configureStore({
     reducer: {
         pizzas: pizzaReducer,
         sort: sortReducer,
+        categories: categoriesReducer,
+        pizzaTypes: pizzaTypesReducer,
     },
 });
 

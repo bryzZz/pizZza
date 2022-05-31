@@ -1,22 +1,20 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { PizzaData } from '../types';
 
-type PizzasState = {
-    list: PizzaData[];
-    typesLabels?: string[];
+type PizzaTypesState = {
+    pizzaTypes: string[];
     loading: 'idle' | 'pending' | 'succeeded' | 'failed';
 };
 
-const initialState: PizzasState = {
-    list: [],
+const initialState: PizzaTypesState = {
+    pizzaTypes: [],
     loading: 'idle',
 };
 
-export const fetchPizzas = createAsyncThunk<PizzaData[]>(
-    'pizzas/fetchPizzas',
+export const fetchPizzaTypes = createAsyncThunk<string[]>(
+    'pizzaTypes/fetchPizzaTypes',
     async (_, { rejectWithValue }) => {
         try {
-            const res = await fetch('http://localhost:5000/pizzas');
+            const res = await fetch('http://localhost:5000/types');
 
             if (!res.ok) {
                 throw new Error('Server error');
@@ -31,23 +29,23 @@ export const fetchPizzas = createAsyncThunk<PizzaData[]>(
     }
 );
 
-const pizzaSlice = createSlice({
-    name: 'pizzas',
+const sortSlice = createSlice({
+    name: 'sort',
     initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(fetchPizzas.pending, (state) => {
+            .addCase(fetchPizzaTypes.pending, (state) => {
                 state.loading = 'pending';
             })
-            .addCase(fetchPizzas.fulfilled, (state, action) => {
+            .addCase(fetchPizzaTypes.fulfilled, (state, action) => {
                 state.loading = 'succeeded';
-                state.list = action.payload;
+                state.pizzaTypes = action.payload;
             })
-            .addCase(fetchPizzas.rejected, (state) => {
+            .addCase(fetchPizzaTypes.rejected, (state) => {
                 state.loading = 'failed';
             });
     },
 });
 
-export default pizzaSlice.reducer;
+export default sortSlice.reducer;
